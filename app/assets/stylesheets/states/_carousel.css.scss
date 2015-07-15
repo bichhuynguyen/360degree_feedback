@@ -1,0 +1,67 @@
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.carousel-control.right {
+  left: auto;
+  right: 0;
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+
+.carousel-control.left {
+  background-image: none;
+  background-image: none;
+  background-image: none;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}
+
+.navbar-brand > img {
+  display: inline;
+}
+
+.carousel-inner {
+  height: 540px;
+}
+
+.android-img {
+  margin-top: 13px;
+  margin-left: 43px;
+  margin-right: 60px;
+}
+
+.ios-img {
+  margin-top: 13px;
+  margin-left: 63px;
+  margin-right: 60px;
+}
+.java-img {
+  margin-top: 13px;
+  margin-left: 63px;
+  margin-right: 60px;
+}
+
+.game-img {
+  margin-top: 13px;
+  margin-left: 62px;
+  margin-right: 60px;
+}
+
+.php-img {
+  margin-top: 13px;
+  margin-left: 62px;
+  margin-right: 60px;
+}
+
+.net-img {
+  margin-top: 13px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
