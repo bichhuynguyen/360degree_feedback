@@ -12,6 +12,7 @@
  *=require font-awesome
  *= require_tree .
  *= require_self
+ *= require bootstrap-modal
  */
 @import url(http://fonts.googleapis.com/css?family=Oswald);
 @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
@@ -20,12 +21,16 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,600,800);
 @import url(http://fonts.googleapis.com/css?family=Domine:400,700);
 
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,600,800);
+@import url(http://fonts.googleapis.com/css?family=Domine:400,700);
 
 @import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-modal";
 @import
+
 //Bases
 "bases/all",
 // Layouts

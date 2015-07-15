@@ -1,0 +1,122 @@
+
+.main-content,
+.slogan,
+.cv-lasted-version,
+.cv-history,
+.persional-info,
+.user-avatar {
+  display: block;
+}
+
+.persional-page {
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+
+.main-content {
+  height: 100%;
+  margin: auto;
+  padding-right: 0px; 
+}
+
+.slogan {
+  /*background: #B6E7CB; */
+  padding: 100px 0px 10px; 
+  margin-left: -30px;
+  font-family: 'Domine', serif;
+  color: #85D28C;
+  border-bottom: solid 1px #85D28C; 
+  .slogan-content {
+    margin: 0px 0px 50px 277px;
+  }
+  .cv-label {
+    margin-left: 438px;
+    font-size: 20px;
+    color: red;
+  }
+  .cv-note {
+    margin-left: 450px;
+    color: #444544;
+  }
+}
+
+.cv-lasted-version {
+  /*background: #A4EF48;*/
+  height: 70px;
+  opacity: 0.5;
+  margin-left: -50px;
+  .fa-pencil {
+    color: black;
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  .cv-note {
+    color: black;
+  }
+}
+
+.cv-history {
+  .history-tags {
+    padding-bottom: 50px;
+    .history-column {
+      border-bottom: solid 1px #ccc;
+      font-weight: bold;
+      color: #33983C;
+      margin-top: 10px;
+      margin-left: -5px;
+    }
+  }
+}
+
+.persional-info {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  background: #000;
+  opacity: 0.9;
+  padding: 0px 15px;
+  height: 768px;
+  text-decoration: center;
+  .user-avatar {
+    margin: 55px 0px 0px 76px;
+  }
+  .username {
+    font-family: 'Raleway', sans-serif;
+    font-size: 32px;
+    margin: 37px 0px 0px 58px;
+    color: #fff;
+  }
+  .user-info {
+    font-size: 16px;
+    margin-top: 20px;
+    color: #fff;
+    .icons {
+      margin-top: 10px;
+      .fa {
+        font-size: 15px;
+        margin: 5px;
+      }
+      .fa-male,
+      .fa-skype,
+      .fa-home {
+        font-size: 19px;
+      }
+      .fa-mobile {
+        font-size: 23px;
+      }
+      .fa-envelope {
+        font-size: 14px;
+      }
+    }
+    .info {
+      p {
+        margin: 15px;
+      }
+      .edit-profile {
+        margin: 10px 0px 0px 17px;
+        background: #5EB694;
+        color: white;
+      }
+    }
+  }
+}
