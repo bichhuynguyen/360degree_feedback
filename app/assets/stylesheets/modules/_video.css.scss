@@ -1,0 +1,77 @@
+.company-video {
+ 
+  margin-top: 20px;
+  margin-left: 0px;
+  .videoContainer 
+{
+    position:absolute;
+    height:100%;
+    width:100%;
+    overflow: hidden;
+}
+
+.videoContainer video 
+{
+    min-width: 100%;
+    min-height: 100%;
+}
+}
+
+
+.cl {
+  background-color: white;
+  height: 40px;
+  margin-bottom: -10px;
+}
+
+.video-content {
+  margin-top: 30px;
+  video {
+   width: 100%;
+    height: auto;
+    max-height: 100%;
+    // position: fixed;
+     z-index: -100;
+    // transform: translateX(-50%) translateY(-50%);
+ // background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+  }
+  .content-right {
+   font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+  font-weight:100; 
+  background: rgba(0,0,0,0.3);
+  color: white;
+  padding: 2rem;
+  width: 35%;
+  margin:2rem;
+  float: right;
+  font-size: 1.2rem;
+  // margin-top: -100px;
+  position: absolute;
+  top: 838px;
+  right: 25px;
+
+  h1 {
+   font-size: 3rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  letter-spacing: .3rem;
+  }
+
+  .item-content {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px;
+  }
+  }
+}
+
+
+// .content-right {
+//   width: 400px;
+//   background-color: gray;
+//   h1 {
+//     color: red;
+//   }
+// }

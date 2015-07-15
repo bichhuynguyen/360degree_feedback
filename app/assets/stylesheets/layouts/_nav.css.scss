@@ -1,0 +1,86 @@
+@media(min-width:768px) {
+    .navbar-fixed-top {
+        padding: 25px 0;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+        line-height: 0px;
+    }
+
+    .navbar-fixed-top.navbar-shrink {
+        padding: 10px 0;
+    }
+
+    .navbar-fixed-top.navbar-shrink .navbar-brand {
+        font-size: 1.5em;
+    }
+}
+
+.navbar {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+
+.navbar a:focus {
+    outline: 0;
+}
+
+.navbar .navbar-nav {
+    letter-spacing: 1px;
+}
+
+.navbar .navbar-nav li a:focus {
+    outline: 0;
+}
+.navbar-default {
+    background-color: #85D28C;
+}
+.navbar-default,
+.navbar-inverse {
+    border: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+  line-height: 14px;
+}
+
+.navbar {
+  height: 75px;
+  background-color: transparent;
+  border-bottom: 1px solid;
+  border-color: #d9d9d9;
+  border-color: rgba(0,0,0,.09);
+  height: 90px;
+  text-transform: uppercase;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-width: 1024px;
+  z-index: 100;
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -ms-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
+  font-family: lovelo,sans-serif;
+}
+
+.navbar-default .navbar-brand {
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+}
+
+.img-logo {
+  width: 60px;
+  height: 53px;
+  margin-top: -19px;
+}
