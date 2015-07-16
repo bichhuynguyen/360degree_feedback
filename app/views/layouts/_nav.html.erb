@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top nav-home">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -26,15 +26,25 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-
+ 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
             <div class="login">
-              <input type="text" placeholder="username" name="user"><br>
+             <!--  <input type="text" placeholder="username" name="user"><br>
               <input type="password" placeholder="password" name="password"><br>
-              <input type="button" value="Login">
+              <input type="button" value="Login"> -->
+              <h2>Sign up</h2>
+
+                <%= form_for(:user, :url => session_path(:user)) do |f| %>
+                  <%= f.text_field :email %>
+                  <%= f.password_field :password %>
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                  <%= f.submit 'Sign in' %>
+                  <%= link_to "Forgot your password?", new_password_path(:user) %>
+                <% end %>
             </div>
           </div>
         </div>
