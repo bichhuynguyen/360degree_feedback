@@ -1,0 +1,39 @@
+//= depend_on_asset "add-account.png"
+.slogan .account-center-label {
+  margin: 0px 0px 50px 198px;
+}
+
+.management-center {
+  background: #ccc;
+}
+
+.add-account,
+.edit-account {
+  display: block;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 355px;
+}
+
+.add-account {
+  left: 190px;
+}
+
+.edit-account {
+  left: 551px;
+}
+
+.add-acc-img {
+  width: 200px;
+  height: 200px;
+}
+
+.edit-acc-img {
+  width: 192px;
+  height: 191px;
+}
+
+.add-acc-content {
+  width: 500px;
+}

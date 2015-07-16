@@ -1,14 +1,14 @@
-
+@import url(http://fonts.googleapis.com/css?family=Domine:400,700);
 .main-content,
 .slogan,
 .cv-lasted-version,
 .cv-history,
-.persional-info,
+.personal-info,
 .user-avatar {
   display: block;
 }
 
-.persional-page {
+.personal-page {
   margin: 0px 0px;
   padding: 0px 0px;
 }
@@ -21,13 +21,18 @@
 
 .slogan {
   /*background: #B6E7CB; */
+  position: relative;
+  z-index: 2;
   padding: 100px 0px 10px; 
   margin-left: -30px;
   font-family: 'Domine', serif;
-  color: #85D28C;
+  color: #4FB959;
   border-bottom: solid 1px #85D28C; 
-  .slogan-content {
-    margin: 0px 0px 50px 277px;
+  .slogan-content,
+  .account-center-label {
+    margin: 0px 0px 50px 311px;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
   }
   .cv-label {
     margin-left: 438px;
@@ -41,7 +46,6 @@
 }
 
 .cv-lasted-version {
-  /*background: #A4EF48;*/
   height: 70px;
   opacity: 0.5;
   margin-left: -50px;
@@ -55,10 +59,13 @@
   }
 }
 
-.cv-history {
-  .history-tags {
+.cv-history,
+.cv-list {
+  .history-tags,
+  .cv-list-tags {
     padding-bottom: 50px;
-    .history-column {
+    .history-column,
+    .list-column {
       border-bottom: solid 1px #ccc;
       font-weight: bold;
       color: #33983C;
@@ -68,22 +75,22 @@
   }
 }
 
-.persional-info {
+.personal-info {
   position: fixed;
   top: 0px;
   right: 0px;
   background: #000;
   opacity: 0.9;
   padding: 0px 15px;
-  height: 768px;
+  height: 700px;
   text-decoration: center;
   .user-avatar {
-    margin: 55px 0px 0px 76px;
+    margin: 55px 0px 0px 93px;
   }
   .username {
     font-family: 'Raleway', sans-serif;
-    font-size: 32px;
-    margin: 37px 0px 0px 58px;
+    font-size: 28px;
+    margin: 24px 0px 0px 63px;
     color: #fff;
   }
   .user-info {

@@ -1,0 +1,45 @@
+.choose-team-btn {
+  position: relative;
+  left: 467px;
+  .team-menu {
+    background: #5EC668;
+    opacity: 1;
+    li {
+      font-size: 15px;
+      &:hover {
+        background: #fff;
+        font-size: 18px;
+        a {
+          color: #5EC668;
+        }
+      }
+      a {
+      color: #fff;
+      padding: 3px 29px;
+      }
+    }
+  }
+}
+
+.cv-list {
+  position: relative;
+  z-index: 1;
+}
+
+.list-detail {
+  margin-right: 30px;
+}
+
+.no-tag {
+  padding-bottom: 10px;
+}
+
+.name-detail p,
+.file-detail a {
+  margin-left: -10px;
+}
+
+.date-detail p {
+  margin-left: 10px;
+}
+
