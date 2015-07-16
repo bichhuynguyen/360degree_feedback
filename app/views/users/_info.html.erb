@@ -1,45 +1,45 @@
-<div class="col-md-3 pull-right persional-info">
-<div class="avatar-content">
-  <%= image_tag 'avatar-default.png', class: "img-circle user-avatar", alt: "Avatar", width: "150", height: "150" %>
-  <p class="username">Huy Nguyen</p>
-</div>
-<div class="user-info">
-  <div class="col-md-2"></div>
-  <div class="col-md-1 icons">
-    <p><i class="fa fa-users"></i></p>
-    <p><i class="fa fa-flag-o"></i></p>
-    <p><i class="fa fa-male"></i></p>
-    <p><i class="fa fa-skype"></i></p>
-    <p><i class="fa fa-mobile"></i></p>
-    <p><i class="fa fa-home"></i></p>
-    <p><i class="fa fa-envelope"></i></p>
-  </div>
-  <div class="col-md-8 info">
-    <p>Ruby</p>
-    <p>Member</p>
-    <p>Female</p>
-    <p>bichhuy2405</p>
-    <p>+84 1206 223 013</p>
-    <p>Da Nang</p>
-    <p>huynb@asiantech.vn</p>
-    <%= link_to "Edit Profile", users_update_path, :class => "btn edit-profile", "data-toggle" => "modal", 'data-target' => '#editProfile' %>
-  </div>
-  <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="exampleModalLabel">Update Profile</h4>
-        </div>
-        <div class="modal-body">
-          <div class="update-content">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+<div class="col-md-3 personal-info">
+   <div class="avatar-content">
+      <%= image_tag 'avatar-default.png', class: "img-circle user-avatar", alt: "Avatar", width: "100", height: "100" %>
+      <p class="username">Huy Nguyen</p>
+   </div>
+   <div class="user-info">
+      <div class="col-md-offset-2 col-md-1 icons">
+         <p><i class="fa fa-users"></i></p>
+         <p><i class="fa fa-flag-o"></i></p>
+         <p><i class="fa fa-male"></i></p>
+         <p><i class="fa fa-skype"></i></p>
+         <p><i class="fa fa-mobile"></i></p>
+         <p><i class="fa fa-home"></i></p>
+         <p><i class="fa fa-envelope"></i></p>
       </div>
-    </div>
-  </div>
+      <div class="col-md-8 info">
+         <p>Ruby</p>
+         <p>Member</p>
+         <p>Female</p>
+         <p>bichhuy2405</p>
+         <p>+84 1206 223 013</p>
+         <p>Da Nang</p>
+         <p>huynb@asiantech.vn</p>
+         <%= link_to "Edit Profile", users_update_path, :class => "btn edit-profile", "data-toggle" => "modal", 'data-target' => '#editProfile' %>
+      </div>
+   </div>
+</div>
+<div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="exampleModalLabel">Update Profile</h4>
+         </div>
+         <div class="modal-body">
+            <div class="update-content">
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+         </div>
+      </div>
+   </div>
 </div>

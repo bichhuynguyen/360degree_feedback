@@ -1,0 +1,16 @@
+.main-nav {
+  .fa-home,
+  .cv-list,
+  .acc-manage {
+    color: #000;
+    font-size: 18px;
+    opacity: 0.7;
+    margin: 15px 0px 0px 15px;
+    &:hover{
+      color: #33983C;
+    }
+  }
+  .fa-home {
+    font-size: 26px;
+  }
+}
