@@ -1,0 +1,25 @@
+.cv-upload-body {
+  border-bottom: none;
+  height: 130px;
+  position: relative;
+  top: 25px;
+  left: 13px;
+  width: 100%;
+  font-family: lovelo,sans-serif;
+  text-transform: none;
+  font-style: italic;
+  .upload-cv-note {
+    margin-top: 10px;
+  }
+}
+
+.upload-modal-content {
+  width: 400px;
+  height: auto;
+}
+
+.upload-modal-header {
+  /*background: #5EC668;*/
+  color: #5EC668;
+  /*border: 1px solid rgba(0, 0, 0, 0.2);*/
+}

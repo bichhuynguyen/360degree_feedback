@@ -34,6 +34,16 @@
     font-family: 'Poiret One', cursive;
     font-weight: bold;
   }
+  .upload-cv-title {
+    display: block;
+    margin: 0px 0px 10px 397px;
+    font-size: 20px;
+    color: red;
+  }
+  .upload-cv-btn {
+    margin: 0px 0px 20px 426px;
+    height: 35px;
+  }
   .cv-label {
     margin-left: 438px;
     font-size: 20px;
@@ -85,7 +95,7 @@
   height: 700px;
   text-decoration: center;
   .user-avatar {
-    margin: 55px 0px 0px 93px;
+    margin: 55px 0px 0px 74px;
   }
   .username {
     font-family: 'Raleway', sans-serif;

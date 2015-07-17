@@ -1,5 +1,6 @@
 <div class="slogan">
   <h1 class="slogan-content"><strong>WORK HARD BE NICE</strong></h1>
+  <% if @user.cv.present? %>
   <div class="cv-lasted-version">
     <p class="cv-label">
       <a>Cirriculum Vitae</a>
@@ -7,8 +8,34 @@
     </p>
     <span class="cv-note">(The lasted version)</span>
   </div>
+  <% else %>
+  <%= link_to "Upload CV", edit_user_path(current_user), method: :get, class: "btn btn-success upload-cv-btn", "data-toggle" => "modal", 'data-target' => '#uploadCv', remote: true %>
+  <% end %>
 </div>
-
+<div class="modal fade" id="uploadCv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <%= form_for(@user , controller: :user, method: :patch, :html => { :multipart => true }) do |f| %>
+    <div class="modal-content upload-modal-content">
+      <div class="modal-header upload-modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Upload CV</h4>
+      </div>
+      <div class="modal-body cv-upload-body">
+        <div class="upload-content">
+          <div class="form-field">
+            <%= f.file_field :cv, accept: "application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document", class: "upload-btn", :required => true %>
+            <p class="text-danger upload-cv-note">Please choose your CV with .pdf, .doc or .docx format</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Upload", class: "btn btn-primary" %> 
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
 <div class="row cv-history">
   <div class="history-tags">
     <div class="col-md-7 history-column">
@@ -21,47 +48,7 @@
       <p>Updated date</p>
     </div>
   </div>
-
   <div class="history-content">
-    <div class="col-md-7">
-      <a href="#">First CV</a>
-      <p>This is my first CV version</p>
-    </div>
-    <div class="col-md-2">
-      <p>1.0</p>
-    </div>
-    <div class="col-md-2">
-      <p>15/07/2015</p>
-    </div>
-  </div>
-
-  <div class="history">
-    <div class="col-md-7">
-      <a href="#">First CV</a>
-      <p>This is my first CV version</p>
-    </div>
-    <div class="col-md-2">
-      <p>1.0</p>
-    </div>
-    <div class="col-md-2">
-      <p>15/07/2015</p>
-    </div>
-  </div>
-
-  <div class="history">
-    <div class="col-md-7">
-      <a href="#">First CV</a>
-      <p>This is my first CV version</p>
-    </div>
-    <div class="col-md-2">
-      <p>1.0</p>
-    </div>
-    <div class="col-md-2">
-      <p>15/07/2015</p>
-    </div>
-  </div>
-
-  <div class="history">
     <div class="col-md-7">
       <a href="#">First CV</a>
       <p>This is my first CV version</p>

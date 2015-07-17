@@ -48,3 +48,5 @@ end
 gem "font-awesome-rails"
 
 gem 'bootstrap-modal-rails'
+
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
