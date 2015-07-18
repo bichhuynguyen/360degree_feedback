@@ -21,11 +21,11 @@
       <p>+84 1206 223 013</p>
       <p>Da Nang</p>
       <p>huynb@asiantech.vn</p>
-      <%= link_to "Edit Profile", edit_user_path(current_user), :class => "btn edit-profile", "data-toggle" => "modal", 'data-target' => '#editProfile' %>
+      <button class="btn edit-profile" data-toggle="modal" data-target="#editProfile" target="_blank">Edit Profile</button>
     </div>
   </div>
 </div>
-<div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -41,5 +41,63 @@
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
+  </div>
+</div> -->
+<div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <%= form_for(@user, controller: :user, method: :patch, :html => { :multipart => true }) do |f| %>
+      <div class="modal-content update-modal-content container">
+        <div class="modal-header upload-modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="exampleModalLabel">Update Profile</h4>
+        </div>
+        <div class="modal-body update-profile-body">
+          <div class="upload-content row">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="field s-field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true %>
+                </div>
+                <div class="field s-field">
+                  <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                  <%= f.password_field :password, autocomplete: "off" %>
+                </div>
+                <div class="field s-field">
+                  <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                </div>
+                <div class="field s-field">
+                  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                  <%= f.password_field :current_password, autocomplete: "off" %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field s-field">
+                  <%= f.label :username %><br />
+                  <%= f.text_field :username, autofocus: false, class: "s-input" %>
+                </div>
+                <div class="field s-field">
+                  <%= f.label :address %><br />
+                  <%= f.text_field :address, autofocus: false, class: "s-input" %>
+                </div>
+                <div class="field s-field">
+                  <%= f.label :phone %><br />
+                  <%= f.text_field :phone, autofocus: false, class: "s-input" %>
+                </div>
+                <div class="field s-field">
+                  <%= f.label :gender %><br />
+                  <%= f.select :gender, options_for_select([["Male", "male"], ["Female", "female"], ["Others", "others"]]), class: "s-action" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit "Save changes", class: "btn btn-primary" %> 
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
