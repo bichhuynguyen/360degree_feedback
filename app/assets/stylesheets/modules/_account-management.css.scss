@@ -8,7 +8,8 @@
 }*/
 
 .add-account,
-.edit-account {
+.edit-account,
+.add-team {
   display: block;
   width: 200px;
   height: 200px;
@@ -17,23 +18,29 @@
 }
 
 .add-account {
-  left: 190px;
+  left: 393px;
 }
 
 .edit-account {
-  left: 551px;
+  left: 684px; 
 }
 
-.add-acc-img {
-  width: 200px;
-  height: 200px;
+.add-team {
+  left: 105px; 
 }
 
-.edit-acc-img {
+.add-acc-img, 
+.edit-acc-img,
+.add-team-img {
+  width: 170px;
+  height: 170px;
+}
+
+/*.edit-acc-img {
   width: 192px;
   height: 191px;
-}
+}*/
 
-.add-acc-content {
+/*.add-acc-content {
   width: 500px;
-}
+}*/

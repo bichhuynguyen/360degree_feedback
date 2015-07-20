@@ -45,7 +45,8 @@
     height: 35px;
   }
   .cv-label {
-    margin-left: 453px;
+    /*margin-left: 453px;*/
+    text-align: center;
     font-size: 20px;
     color: red;
   }
@@ -81,6 +82,9 @@
       color: #33983C;
       margin-top: 10px;
       margin-left: -5px;
+    }
+    .date {
+      padding-left: 60px;
     }
   }
 }
@@ -145,5 +149,17 @@
         color: white;
       }
     }
+  }
+}
+
+
+.history-content {
+  .col-md-6 p,
+  .col-md-2 p,
+  .col-md-3 p {
+    display: block;
+  }
+  .comment {
+    color: blue;
   }
 }

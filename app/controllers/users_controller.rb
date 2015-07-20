@@ -11,6 +11,8 @@ class UsersController < ApplicationController
     @role_id = @user.role_id
     @team = Team.find(@team_id)
     @role = Role.find(@role_id)
+    @versions = @user.versions.all
+    @user.versions.build
   end
 
   def new
@@ -19,6 +21,7 @@ class UsersController < ApplicationController
 
   def list
     @user = User.find(current_user.id)
+    @teams = Team.all
   end
 
   def account
@@ -57,5 +60,7 @@ class UsersController < ApplicationController
 
   def update_params
     params.require(:user).permit(:username, :address, :phone, :password, :avatar)
+    params.require(:user).permit(:cv, versions_attributes: [:comment, :version])
+
   end
 end
