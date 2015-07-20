@@ -7,10 +7,10 @@
 <div class="row management-center">
   <div class="center-details">
   <div class="add-account">
-    <a href="#"><img src="../assets/add-account.png" class="add-acc-img" data-toggle="modal" data-target="#addAccount"></a>
+    <%= link_to (image_tag("add-account.png", alt: "Add an account", class: "add-acc-img", "data-toggle" => "modal", "data-target" => "#addAccount")), root_path %>
   </div>
   <div class="edit-account">
-    <a href="#"><img src="../assets/edit-account.png" class="edit-acc-img" data-toggle="modal" data-target="#editAccount"></a>
+    <%= link_to (image_tag("edit-account.png", alt: "Edit user's information", class: "edit-acc-img", "data-toggle" => "modal", "data-target" => "#editAccount")), root_path %>
   </div>
   </div>
 </div>
