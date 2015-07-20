@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :cv, 
                                     :content_type => ['application/pdf', 'application/msword', 'text/plain'],
                                     :message => "Only PDF, WORD or TEXT files are allowed."
-
+ has_attached_file :avatar, styles: {large: "600x600>", medium: "300x300>", thumb: "150x150#"}
+ validates_attachment_content_type :avatar, content_type: /\Aimage/
   # def self.search(search)
   #   where('user_code LIKE ? || username LIKE ? || email LIKE ? || phone LIKE ?', 
   #          "%#{search}%" , "%#{search}%", "%#{search}%", "%#{search}%")
