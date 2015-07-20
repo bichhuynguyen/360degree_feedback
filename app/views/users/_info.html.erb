@@ -45,7 +45,7 @@
 </div> -->
 <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-    <%= form_for(@user, controller: :user, method: :patch, :html => { :multipart => true }) do |f| %>
+    <%= form_for(@user, controller: :users, method: :patch, :html => { :multipart => true }) do |f| %>
       <div class="modal-content update-modal-content container">
         <div class="modal-header upload-modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -57,37 +57,37 @@
               <div class="col-md-6">
                 <div class="field s-field">
                   <%= f.label :email %><br />
-                  <%= f.email_field :email, autofocus: true %>
+                  <%= f.email_field :email, autofocus: true, class: "form-control s-input" %>
                 </div>
                 <div class="field s-field">
                   <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-                  <%= f.password_field :password, autocomplete: "off" %>
+                  <%= f.password_field :password, autocomplete: "off", class: "form-control s-input" %>
                 </div>
                 <div class="field s-field">
                   <%= f.label :password_confirmation %><br />
-                  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control s-input" %>
                 </div>
                 <div class="field s-field">
                   <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-                  <%= f.password_field :current_password, autocomplete: "off" %>
+                  <%= f.password_field :current_password, autocomplete: "off", class: "form-control s-input" %>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="field s-field">
                   <%= f.label :username %><br />
-                  <%= f.text_field :username, autofocus: false, class: "s-input" %>
+                  <%= f.text_field :username, autofocus: false, class: "form-control s-input" %>
                 </div>
                 <div class="field s-field">
                   <%= f.label :address %><br />
-                  <%= f.text_field :address, autofocus: false, class: "s-input" %>
+                  <%= f.text_field :address, autofocus: false, class: "form-control s-input" %>
                 </div>
                 <div class="field s-field">
                   <%= f.label :phone %><br />
-                  <%= f.text_field :phone, autofocus: false, class: "s-input" %>
+                  <%= f.text_field :phone, autofocus: false, class: "form-control s-input" %>
                 </div>
                 <div class="field s-field">
                   <%= f.label :gender %><br />
-                  <%= f.select :gender, options_for_select([["Male", "male"], ["Female", "female"], ["Others", "others"]]), class: "s-action" %>
+                  <%= f.select :gender, options_for_select([["Male", "male"], ["Female", "female"], ["Others", "others"]]), class: "select-gender", prompt: "Select gender" %>
                 </div>
               </div>
             </div>
