@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def show
     @user = User.find(current_user.id)
+    @versions = @user.versions.all
+    @user.versions.build
   end
 
   def new
@@ -12,6 +14,7 @@ class UsersController < ApplicationController
 
   def list
     @user = User.find(current_user.id)
+    @teams = Team.all
   end
 
   def account
@@ -53,6 +56,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:cv)
+    params.require(:user).permit(:cv, versions_attributes: [:comment, :version])
   end
 end

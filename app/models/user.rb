@@ -2,9 +2,10 @@ class User < ActiveRecord::Base
   belongs_to :team
   belongs_to :role
   has_many :versions
-  accepts_nested_attributes_for :versions
+  accepts_nested_attributes_for :versions, allow_destroy: true, reject_if: :all_blank
+  
 
-
+  # attr_accesible :version, :comment, :versions_attributes 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -20,9 +21,6 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :cv, 
                                     :content_type => ['application/pdf', 'application/msword', 'text/plain'],
                                     :message => "Only PDF, WORD or TEXT files are allowed."
-
-
-
 
   # def self.search(search)
   #   where('user_code LIKE ? || username LIKE ? || email LIKE ? || phone LIKE ?', 
