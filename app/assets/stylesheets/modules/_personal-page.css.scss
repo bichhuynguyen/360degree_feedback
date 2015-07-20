@@ -94,6 +94,16 @@
   padding: 0px 15px;
   height: 700px;
   text-decoration: center;
+  .img-avatar {
+    position: relative;
+    top: -89px;
+    left: 132px;
+    font-size: 35px;
+    opacity: 0;
+    &:hover, &:focus {
+      opacity: 1.5;
+    }
+  }
   .user-avatar {
     margin: 55px 0px 0px 74px;
   }

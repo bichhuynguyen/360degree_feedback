@@ -2,8 +2,15 @@ class UsersController < ApplicationController
   layout "layout", only: [:show, :list, :account]
   # layout "no-header", only: [:show]
   before_action :authenticate_user!
+  # has_attached_file :avatar
+  # before_action :find_id, only: [:show, :edit, :update, :destroy]
+
   def show
     @user = User.find(current_user.id)
+    @team_id = @user.team_id
+    @role_id = @user.role_id
+    @team = Team.find(@team_id)
+    @role = Role.find(@role_id)
   end
 
   def new
@@ -16,12 +23,6 @@ class UsersController < ApplicationController
 
   def account
     @user = User.find(current_user.id)
-  # if params[:search]
-  #     @books  = User.search(params[:search]).where("user_code = 'uploaded book'").order("title ASC").paginate(:page => params[:page], :per_page => 12)
-  #   else
-  #     @books  = Book.where("kind = 'uploaded book'").order("title DESC").paginate(:page => params[:page], :per_page => 12)
-  #     @gbooks = Book.where("kind = 'google book'").order("title DESC").paginate(:page => params[:page], :per_page => 12)
-  #   end   
   end
 
   def create
@@ -41,18 +42,20 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    respond_to do |format|
-      if @user.update_attributes(user_params)
-        format.html { redirect_to user_path(current_user), notice: "Your CV was successfully updated." }
-      else
-        format.html { redirect_to user_path(@user) , notice: "Update failed." }
-      end
+    if @user.update(update_params)
+      redirect_to @user
+    else 
+      render 'edit'
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:cv)
+    params.require(:user).permit(:cv, :avatar)
+  end
+
+  def update_params
+    params.require(:user).permit(:username, :address, :phone, :password, :avatar)
   end
 end
