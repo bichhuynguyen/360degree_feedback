@@ -11,10 +11,11 @@ class UsersController < ApplicationController
   end
 
   def list
-    
+    @user = User.find(current_user.id)
   end
 
   def account
+    @user = User.find(current_user.id)
   # if params[:search]
   #     @books  = User.search(params[:search]).where("user_code = 'uploaded book'").order("title ASC").paginate(:page => params[:page], :per_page => 12)
   #   else

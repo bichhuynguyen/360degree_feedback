@@ -1,4 +1,5 @@
-.cv-upload-body {
+.cv-upload-body,
+.update-profile-body {
   border-bottom: none;
   height: 130px;
   position: relative;
@@ -16,10 +17,23 @@
 .upload-modal-content {
   width: 400px;
   height: auto;
+  top: 41px;
+  right: 261px;
 }
 
 .upload-modal-header {
-  /*background: #5EC668;*/
   color: #5EC668;
-  /*border: 1px solid rgba(0, 0, 0, 0.2);*/
+  border-bottom: solid 1px #5EC668;
+}
+
+.update-modal-content {
+  width: 800px;
+  margin: 42px 0 0 -259px;
+  
+}
+
+.update-profile-body {
+  height: 311px;
+  left: 60px;
+  top: 19px;
 }

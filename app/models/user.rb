@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+  belongs_to :team
+  belongs_to :role
+  has_many :versions
+  accepts_nested_attributes_for :versions
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,8 +24,8 @@ class User < ActiveRecord::Base
 
 
 
-  def self.search(search)
-    where('user_code LIKE ? || username LIKE ? || email LIKE ? || phone LIKE ?', 
-           "%#{search}%" , "%#{search}%", "%#{search}%", "%#{search}%")
-  end
+  # def self.search(search)
+  #   where('user_code LIKE ? || username LIKE ? || email LIKE ? || phone LIKE ?', 
+  #          "%#{search}%" , "%#{search}%", "%#{search}%", "%#{search}%")
+  # end
 end
