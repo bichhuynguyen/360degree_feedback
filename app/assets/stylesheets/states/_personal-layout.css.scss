@@ -12,7 +12,6 @@
 .dropdown .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 607px;
     margin: 0;
     list-style: none; 
     width: 10%;
@@ -24,11 +23,11 @@
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+  display: block;
 }
 
 .dropdown span i {
-    color: #fff;
+  color: #fff;
   border: none;
   margin: 0;
   padding: 23px 20px;
@@ -48,7 +47,6 @@
 }
 
 .menu-personal {
-  margin-left: 600px;
   font-size: 20px;
   font-weight: bold;
 }
