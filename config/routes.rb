@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'users/:id/show' => 'users#show', as: :user, action: :show, controller: :users
+  # get 'users/:id/show' => 'users#show', as: :user, action: :show, controller: :users
   # get 'users/show'
   # get 'users/update' 
   get 'users/:id/list' => 'users#list', as: :list, action: :list, controller: :users

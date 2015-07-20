@@ -14,7 +14,7 @@
 </div>
 <div class="modal fade" id="uploadCv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-    <%= form_for(@user , controller: :user, method: :patch, :html => { :multipart => true }) do |f| %>
+    <%= form_for(@user , :html => { :multipart => true }) do |f| %>
     <div class="modal-content upload-modal-content">
       <div class="modal-header upload-modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -26,6 +26,11 @@
             <%= f.file_field :cv, accept: "application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document", class: "upload-btn", :required => true %>
             <p class="text-danger upload-cv-note">Please choose your CV with .pdf, .doc or .docx format</p>
           </div>
+          <%= f.fields_for :versions do |version_fields| %>
+            <div class="form-field">
+              <%= version_fields.hidden_field :version, :value => "1.0" %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="modal-footer">
@@ -39,51 +44,62 @@
 
 <div class="modal fade" id="editCv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-    <%= form_for(@user , controller: :user, method: :patch, :html => { :multipart => true }) do |f| %>
-    <div class="modal-content upload-modal-content">
-      <div class="modal-header upload-modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Change your CV</h4>
-      </div>
-      <div class="modal-body cv-upload-body">
-        <div class="upload-content">
-          <div class="form-field">
-            <%= f.file_field :cv, accept: "application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document", class: "upload-btn", :required => true %>
-            <p class="text-danger upload-cv-note">Please choose your CV with .pdf, .doc or .docx format</p>
+    <%= form_for(@user , :html => { :multipart => true }) do |f| %>
+      <div class="modal-content upload-modal-content">
+        <div class="modal-header upload-modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="exampleModalLabel">Change your CV</h4>
+        </div>
+        <div class="modal-body cv-upload-body">
+          <div class="upload-content">
+            <div class="form-field">
+              <%= f.file_field :cv, accept: "application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document", class: "upload-btn", :required => true %>
+              <p class="text-danger upload-cv-note">Please choose your CV with .pdf, .doc or .docx format</p>
+            </div>
+            <%= f.fields_for :versions do |version_fields| %>
+              <div class="form-field">
+                <%= version_fields.label :comment %><br />
+                <%= version_fields.text_area :comment, row: "3" %>
+              </div>
+              <div class="form-field">
+              <!--   <%= version_fields.hidden_field :version, value: (version_field.version + 0.1) %> -->
+              </div>
+            <% end %>
           </div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit "Upload", class: "btn btn-primary" %> 
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <%= f.submit "Upload", class: "btn btn-primary" %> 
-      </div>
-    </div>
     <% end %>
   </div>
 </div>
 
 <div class="row cv-history">
   <div class="history-tags">
-    <div class="col-md-7 history-column">
+    <div class="col-md-6 history-column">
       <p>CV History</p>
     </div>
     <div class="col-md-2 history-column version">
       <p>Version</p>
     </div>
-    <div class="col-md-2 history-column date">
+    <div class="col-md-3 history-column date">
       <p>Updated date</p>
     </div>
   </div>
-  <div class="history-content">
-    <div class="col-md-7">
-      <a href="#">First CV</a>
-      <p>This is my first CV version</p>
+</div>
+<% @versions.each do |v| %>
+  <div class="row history-content">
+    <div class="col-md-6">
+      <p><%= @user.cv_file_name %></p>
+      <p class="comment"><%= v.comment %></p>
     </div>
     <div class="col-md-2">
-      <p>1.0</p>
+      <p><%= v.version %></p>
     </div>
-    <div class="col-md-2">
-      <p>15/07/2015</p>
+    <div class="col-md-3">
+      <p><%= v.updated_at.localtime %></p>
     </div>
   </div>
-</div>
+<% end %>
