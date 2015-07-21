@@ -2,7 +2,6 @@
   <h1 class="slogan-content"><strong>CIRRICULUM VITAE LIST</strong></h1>
   <div class="cv-lasted-version">
     <%= select_tag :team_id, options_from_collection_for_select(@teams, "id", "name"), 
-                   include_blank: true,
                    :'data-remote' => 'true', 
                    :'data-url' => url_for(controller: :users, action: :list),
                    class: "btn btn-default choose-team-btn", id: "team" %>
@@ -22,20 +21,5 @@
     </div>
   </div>
 
-  <div class="list-content" id="members">
-    <% @members.each do |member| %>
-      <div class="list-detail">
-        <div class="col-md-1 no-detail">1</div>
-        <div class="col-md-6 name-detail">
-          <p><%= member.username %></p>
-        </div>
-        <div class="col-md-2 file-detail">
-          <%= link_to "Download", member.cv.url(:original, false), download: member.cv_file_name %>
-        </div>
-        <div class="col-md-2 date-detail">
-          <p><%= member.cv_updated_at.strftime("%d-%m-%Y") %></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
+
 </div>

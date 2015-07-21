@@ -60,7 +60,6 @@ class UsersController < ApplicationController
     @role_id  = current_user.role_id
     @team     = Team.find(@team_id)
     @role     = Role.find(@role_id)
->>>>>>> origin
   end
 
   def create
