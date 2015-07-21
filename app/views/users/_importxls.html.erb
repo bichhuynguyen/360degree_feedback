@@ -1,0 +1,45 @@
+<div class="slogan">
+	<h1 class="slogan-content"><strong>LIST INFOMATION USER</strong></h1>
+</div>
+<table class="table table-striped table-list-info">
+	<tr class="row-import">
+		<th class="header-table">UserName</th>
+		<th class="header-table" >User Code</th>
+		<th class="header-table">Email</th>
+		<th class="header-table">Role</th>
+		<th class="header-table">Team</th>
+		<th class="header-table">Address</th>
+		<th class="header-table">Phone</th>
+		<th class="header-table">Skype</th>
+		<th class="header-table">Gender</th>
+	</tr>
+	<% @users.each do |user| %>
+		<tr>
+			<td class="info-user"><%= @user.username%></td>
+			<td class="info-user"><%= @user.user_code %></td>
+			<td class="info-user"><%= @user.email%></td>
+
+			<% @roles.each do |role| %>
+				<% if role.id == user.role_id %>
+	  			<td class="info-user"><%= role.name %></td>
+	  		<% end %>
+			<% end %>
+
+			<% @teams.each do |team| %>
+				<% if team.id == user.team_id %>
+	  			<td class="info-user"><%= team.name %></td>
+	  		<% end %>
+			<% end %>
+			
+			<td class="info-user"><%= @user.address%></td>
+			<td class="info-user">+84 <%= @user.phone%></td>
+			<td class="info-user"><%= @user.skype%></td>
+			<td class="info-user"><%= @user.gender%></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= form_tag users_importuser_path, multipart: true do %>
+  <%= file_field_tag :file , :class => 'input-file'%>
+  <%= submit_tag "Import", :class => 'btn btn-success'%>
+<% end %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout "layout", only: [:show, :list, :account]
+  layout "layout", only: [:show, :list, :account, :importuser]
   # layout "no-header", only: [:show]
   before_action :authenticate_user!
   # has_attached_file :avatar
@@ -52,10 +52,26 @@ class UsersController < ApplicationController
     end
   end
 
+  def importuser
+    @users = User.all
+    @roles = Role.all
+    @teams = Team.all
+    @user = User.find(current_user.id)
+    @team_id = @user.team_id
+    @role_id = @user.role_id
+    @team = Team.find(@team_id)
+    @role = Role.find(@role_id)
+  end
+
+  def import
+    User.import(params[:file])
+    redirect_to users_importxls_path, notice: "Users imported success."
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:cv, :avatar)
+    params.require(:user).permit(:cv, :avatar, :username, :user_code)
   end
 
   def update_params
