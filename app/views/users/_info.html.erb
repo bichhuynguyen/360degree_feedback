@@ -1,11 +1,13 @@
 <div class="col-md-3 personal-info">
    <div class="avatar-content">
-      <%= image_tag @user.avatar.url, class: "img-circle user-avatar", width: "150", height: "150"%>
+      <%= image_tag current_user.avatar.url, class: "img-circle user-avatar", width: "150", height: "150"%>
       <i class="fa fa-camera img-avatar" data-toggle="modal" data-target="#editAvatar" target="_blank"></i>
-      <p class="username"><%=@user.username%></p>
+      <p class="username"><%= current_user.username %></p>
    </div>
+   
    <div class="user-info">
       <div class="col-md-offset-2 col-md-1 icons">
+      <p><i class="fa fa-qrcode"></i></p>
          <p><i class="fa fa-users"></i></p>
          <p><i class="fa fa-flag-o"></i></p>
          <p><i class="fa fa-male"></i></p>
@@ -15,48 +17,32 @@
          <p><i class="fa fa-envelope"></i></p>
       </div>
       <div class="col-md-8 info">
+         <p><%=current_user.user_code%></p>
          <p><%= @team.name %></p>
          <p><%= @role.name %></p>
-         <p>Female</p>
-         <p><%= @user.skype %></p>
-         <p>+84 <%= @user.phone %></p>
-         <p><%= @user.address %></p>
-         <p><%= @user.email %></p>
+         <p><%=current_user.gender%></p>
+         <p><%= current_user.skype %></p>
+         <p>+84 <%= current_user.phone %></p>
+         <p><%= current_user.address %></p>
+         <p><%= current_user.email %></p>
          <button class="btn edit-profile" data-toggle="modal" data-target="#editProfile" target="_blank">Edit Profile</button>
       </div>
    </div>
 </div>
 <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
    <div class="modal-dialog" role="document">
-      <%= form_for(@user, controller: :users, method: :patch, :html => { :multipart => true }) do |f| %>
+      <%= form_for(current_user, :html => { :multipart => true }) do |f| %>
       <div class="modal-content update-modal-content container">
          <div class="modal-header upload-modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="exampleModalLabel">Update Profile</h4>
+
          </div>
          <div class="modal-body update-profile-body">
             <div class="upload-content row">
                <div class="row">
                   <div class="col-md-6">
-                     <div class="field s-field">
-                        <%= f.label :email %><br />
-                        <%= f.email_field :email, autofocus: true, class: "form-control s-input" %>
-                     </div>
-                     <div class="field s-field">
-                        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-                        <%= f.password_field :password_current, autocomplete: "off", class: "form-control s-input" %>
-                     </div>
-                     <div class="field s-field">
-                        <%= f.label :new_password %><br />
-                        <%= f.password_field :password, autocomplete: "off", class: "form-control s-input" %>
-                     </div>
-                     <div class="field s-field">
-                        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-                        <%= f.password_field :current_password, autocomplete: "off", class: "form-control s-input" %>
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                     <div class="field s-field">
+                  <div class="field s-field">
                         <%= f.label :username %><br />
                         <%= f.text_field :username, autofocus: false, class: "form-control s-input" %>
                      </div>
@@ -64,13 +50,24 @@
                         <%= f.label :address %><br />
                         <%= f.text_field :address, autofocus: false, class: "form-control s-input" %>
                      </div>
+                  <div class="form-group input-language">
+                      <%= f.label :region, "Region:"%><br />
+                      <%= f.select :region, options_from_collection_for_select(LanguageList::COMMON_LANGUAGES, "name", "name"), {:prompt => :region}, :required => true%>
+                    </div>
+                    <%= link_to "Change your password", edit_user_registration_path%>
+                    </div>
+                  <div class="col-md-6">
+                     <div class="field s-field">
+                        <%= f.label :skype %><br />
+                        <%= f.text_field :skype, autofocus: false, class: "form-control s-input" %>
+                     </div>
                      <div class="field s-field">
                         <%= f.label :phone %><br />
                         <%= f.text_field :phone, autofocus: false, class: "form-control s-input" %>
                      </div>
                      <div class="field s-field">
                         <%= f.label :gender %><br />
-                        <%= f.select :gender, options_for_select([["Male", "male"], ["Female", "female"], ["Others", "others"]]), class: "select-gender", prompt: "Select gender" %>
+                        <%= f.select :gender, options_for_select([["Male", "male"], ["Female", "female"], ["Others", "others"]], "selected"), class: "select-gender", prompt: "Select gender" %>
                      </div>
                   </div>
                </div>
@@ -86,7 +83,7 @@
 </div>
 <div class="modal fade" id="editAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
    <div class="modal-dialog" role="document">
-      <%= form_for @user, html: {multipart: true} do |f| %>
+      <%= form_for current_user, html: {multipart: true} do |f| %>
       <div class="modal-content update-modal-content container">
          <div class="modal-header upload-modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>

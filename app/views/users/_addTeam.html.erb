@@ -1,0 +1,32 @@
+<div class="slogan">
+  <h1 class="account-center-label"><strong>TEAM MANAGEMENT CENTER</strong></h1>
+  <div class="add-new-team">
+  <button class="btn btn-success">Add New Team</button>
+  </div>
+</div>
+<div class="row team-center">
+  <div class="team-details">
+    <div class="row team-detail-tag">
+      <div class="col-md-1 list-column no-tag">No.</div>
+      <div class="col-md-3 team-tag-column">
+        <p>Team</p>
+      </div>
+      <div class="col-md-8 team-tag-column">
+        <p>Members</p>
+      </div>
+    </div>
+  </div>
+  <div class="list-content">
+    <% @teams.each do |team| %>
+      <div class="list-detail">
+        <div class="col-md-1 no-detail">1</div>
+        <div class="col-md-3 name-detail">
+          <p><%= team.name %></p>
+        </div>
+        <div class="col-md-8 file-detail">
+          
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

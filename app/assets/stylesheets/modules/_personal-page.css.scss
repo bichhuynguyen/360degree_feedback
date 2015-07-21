@@ -141,6 +141,7 @@
     }
     .info {
       p {
+        display: block;
         margin: 15px;
       }
       .edit-profile {
@@ -162,4 +163,8 @@
   .comment {
     color: blue;
   }
+}
+
+.history-date {
+  margin-left: 18px;
 }

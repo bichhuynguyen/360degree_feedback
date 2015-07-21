@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720074724) do
+ActiveRecord::Schema.define(version: 20150721091538) do
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20150720074724) do
     t.string   "address",                limit: 255
     t.string   "phone",                  limit: 255
     t.string   "skype",                  limit: 255
-    t.boolean  "gender",                 limit: 1
+    t.string   "gender",                 limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.integer  "role_id",                limit: 4
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150720074724) do
     t.string   "avatar_content_type",    limit: 255
     t.integer  "avatar_file_size",       limit: 4
     t.datetime "avatar_updated_at"
+    t.string   "region",                 limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -64,7 +65,7 @@ ActiveRecord::Schema.define(version: 20150720074724) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "user_id",    limit: 4
-    t.string   "version",    limit: 255
+    t.float    "version",    limit: 24
     t.text     "comment",    limit: 65535
   end
 
