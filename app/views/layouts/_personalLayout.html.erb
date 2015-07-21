@@ -4,14 +4,14 @@
     <nav class="navbar navbar-default nav-personal">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header page-scroll">
-        <a class="navbar-brand" href="#page-top"> <img class="personal-logo" src="../assets/logo.png"> <span class="text-personal">Asian Tech</span></a>
+        <a class="navbar-brand" href="#page-top"> <img class="personal-logo" src="../../assets/logo.png"> <span class="text-personal">Asian Tech</span></a>
       </div>
   
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <div style="width: 123px;" class="dropdown pull-right">
           <span class="menu-personal">Menu <i class="fa fa-bars"></i></span>
           <ul class="dropdown-menu">
-            <li class="item-dropdown"><a href="#home">Home</a></li>
+            <li class="item-dropdown"><%= link_to "Home", root_path%></li>
             <li class="item-dropdown"><a href="#about">CV List</a></li>
             <li class="item-dropdown"><a href="#contact">Acc Management</a></li>
             <li class="item-dropdown"><%= link_to "Logout", destroy_user_session_path, :method => :delete%></li>

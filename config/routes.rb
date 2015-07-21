@@ -1,5 +1,10 @@
-  Rails.application.routes.draw do
-  devise_for :users
+Rails.application.routes.draw do
+  devise_for :users, :controllers => {:registrations => 'devise/registrations'}
+   
+  # as :user do
+  # get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'    
+  # put 'users' => 'devise/registrations#update', :as => 'user_registration'            
+  # end
   # get 'users/:id/show' => 'users#show', as: :user, action: :show, controller: :users
   # get 'users/show'
   # get 'users/update' 

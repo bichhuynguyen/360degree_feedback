@@ -20,6 +20,20 @@ class UsersController < ApplicationController
   end
 
   def list
+    @user = User.find(current_user.id)
+    @teams = Team.all
+     @team_id = @user.team_id
+    @role_id = @user.role_id
+    @team = Team.find(@team_id)
+    @role = Role.find(@role_id)
+  end
+
+  def account
+    @user = User.find(current_user.id)
+     @team_id = @user.team_id
+    @role_id = @user.role_id
+    @team = Team.find(@team_id)
+    @role = Role.find(@role_id)
     @teams    = Team.all
     # @group    = params[:team_id]
     @group    = params[:team_id]
@@ -46,6 +60,7 @@ class UsersController < ApplicationController
     @role_id  = current_user.role_id
     @team     = Team.find(@team_id)
     @role     = Role.find(@role_id)
+>>>>>>> origin
   end
 
   def create
@@ -83,7 +98,12 @@ class UsersController < ApplicationController
   end
 
   def update_params
+
+    params.require(:user).permit(:username, :address, :phone, :avatar, :region, :gender, :skype)
+    # params.require(:user).permit(:cv, versions_attributes: [:comment, :version])
+
     # params.require(:user).permit(:username, :address, :phone, :password, :avatar)
     params.require(:user).permit(:cv, versions_attributes: [:comment, :version])
+
   end
 end
