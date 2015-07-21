@@ -1,8 +1,8 @@
 <div class="col-md-3 personal-info">
    <div class="avatar-content">
-      <%= image_tag @user.avatar.url, class: "img-circle user-avatar", width: "150", height: "150"%>
+      <%= image_tag current_user.avatar.url, class: "img-circle user-avatar", width: "150", height: "150"%>
       <i class="fa fa-camera img-avatar" data-toggle="modal" data-target="#editAvatar" target="_blank"></i>
-      <p class="username"><%=@user.username%></p>
+      <p class="username"><%= current_user.username %></p>
    </div>
    <div class="user-info">
       <div class="col-md-offset-2 col-md-1 icons">
@@ -15,20 +15,21 @@
          <p><i class="fa fa-envelope"></i></p>
       </div>
       <div class="col-md-8 info">
-         <p><%=@team.name%></p>
-         <p><%=@role.name%></p>
+    
+         <p><%= @team.name %></p>
+         <p><%= @role.name %></p>
          <p>Female</p>
-         <p><%=@user.skype%></p>
-         <p>+84 <%=@user.phone%></p>
-         <p><%=@user.address%></p>
-         <p><%=@user.email%></p>
+         <p><%= current_user.skype %></p>
+         <p>+84 <%= current_user.phone %></p>
+         <p><%= current_user.address %></p>
+         <p><%= current_user.email %></p>
          <button class="btn edit-profile" data-toggle="modal" data-target="#editProfile" target="_blank">Edit Profile</button>
       </div>
    </div>
 </div>
 <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
    <div class="modal-dialog" role="document">
-      <%= form_for(@user, controller: :users, method: :patch, :html => { :multipart => true }) do |f| %>
+      <%= form_for(current_user, :html => { :multipart => true }) do |f| %>
       <div class="modal-content update-modal-content container">
          <div class="modal-header upload-modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -86,7 +87,7 @@
 </div>
 <div class="modal fade" id="editAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
    <div class="modal-dialog" role="document">
-      <%= form_for @user, html: {multipart: true} do |f| %>
+      <%= form_for current_user, html: {multipart: true} do |f| %>
       <div class="modal-content update-modal-content container">
          <div class="modal-header upload-modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
