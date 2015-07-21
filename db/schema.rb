@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150721091538) do
     t.datetime "updated_at",                                      null: false
     t.integer  "role_id",                limit: 4
     t.integer  "team_id",                limit: 4
+    t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
@@ -45,8 +46,6 @@ ActiveRecord::Schema.define(version: 20150721091538) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.string   "email",                  limit: 255
-    t.string   "password",               limit: 255
     t.string   "cv_file_name",           limit: 255
     t.string   "cv_content_type",        limit: 255
     t.integer  "cv_file_size",           limit: 4
@@ -58,13 +57,14 @@ ActiveRecord::Schema.define(version: 20150721091538) do
     t.string   "region",                 limit: 255
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "versions", force: :cascade do |t|
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "user_id",    limit: 4
-    t.string   "version",    limit: 255
+    t.float    "version",    limit: 24
     t.text     "comment",    limit: 65535
   end
 

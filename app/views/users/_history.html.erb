@@ -3,7 +3,7 @@
   <% if @user.cv.present? %>
   <div class="cv-lasted-version">
     <p class="cv-label">
-      <%= link_to @user.cv_file_name, @user.cv.url(:original, false), download: @user.cv_file_name %>
+      <%= link_to current_user.cv_file_name, current_user.cv.url(:original, false), download: current_user.cv_file_name %>
       <%= link_to " ", edit_user_path(current_user), method: :get, class: "fa fa-pencil", "data-toggle" => "modal", 'data-target' => '#editCv', remote: true %>
     </p>
     <span class="cv-note">Curriculum Vitae (The lasted version)</span>
@@ -14,7 +14,7 @@
 </div>
 <div class="modal fade" id="uploadCv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-    <%= form_for(@user , :html => { :multipart => true }) do |f| %>
+    <%= form_for(current_user , :html => { :multipart => true }) do |f| %>
     <div class="modal-content upload-modal-content">
       <div class="modal-header upload-modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -44,25 +44,25 @@
 
 <div class="modal fade" id="editCv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-    <%= form_for(@user , :html => { :multipart => true }) do |f| %>
-      <div class="modal-content upload-modal-content">
-        <div class="modal-header upload-modal-header">
+    <%= form_for(current_user , :html => { :multipart => true }) do |f| %>
+      <div class="modal-content update-cv-content">
+        <div class="modal-header update-cv-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="exampleModalLabel">Change your CV</h4>
         </div>
-        <div class="modal-body cv-upload-body">
+        <div class="modal-body cv-update-body">
           <div class="upload-content">
             <div class="form-field">
               <%= f.file_field :cv, accept: "application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document", class: "upload-btn", :required => true %>
               <p class="text-danger upload-cv-note">Please choose your CV with .pdf, .doc or .docx format</p>
             </div>
             <%= f.fields_for :versions do |version_fields| %>
-              <div class="form-field">
-                <%= version_fields.label :comment %><br />
-                <%= version_fields.text_area :comment, row: "3" %>
-              </div>
-              <div class="form-field">
-              </div>
+              <% if version_fields.object.new_record? %>
+                <div class="form-field">
+                  <%= version_fields.label :comment %><br />
+                  <%= version_fields.text_area :comment, row: "3" %>
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>
@@ -88,6 +88,7 @@
     </div>
   </div>
 </div>
+
 <% @versions.each do |v| %>
   <div class="row history-content">
     <div class="col-md-6">
@@ -97,8 +98,8 @@
     <div class="col-md-2">
       <p><%= v.version %></p>
     </div>
-    <div class="col-md-3">
-      <p><%= v.updated_at.localtime %></p>
+    <div class="col-md-3 history-date">
+      <p><%= v.updated_at.localtime.to_formatted_s(:long) %></p>
     </div>
   </div>
 <% end %>

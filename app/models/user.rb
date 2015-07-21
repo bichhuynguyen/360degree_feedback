@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :cv, 
                                     :content_type => ['application/pdf', 'application/msword', 'text/plain'],
                                     :message => "Only PDF, WORD or TEXT files are allowed."
+
  has_attached_file :avatar, styles: {large: "600x600>", medium: "300x300>", thumb: "150x150#"},
                    :url  => "/image/:id/:basename.:extension",
                    :path => ":rails_root/public/image/:id/:basename.:extension"
