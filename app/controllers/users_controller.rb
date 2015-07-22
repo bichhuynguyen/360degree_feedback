@@ -99,11 +99,16 @@ class UsersController < ApplicationController
     @role_id = @user.role_id
     @team = Team.find(@team_id)
     @role = Role.find(@role_id)
+    # require 'csv'
+    # respond_to do |format|
+    #   format.csv { send_data @users.to_csv }
+    #   format.html
+    # end
   end
 
   def import
     User.import(params[:file])
-    redirect_to users_importxls_path, notice: "Users imported success."
+    redirect_to users_importuser_path, notice: "Users imported success."
   end
 
   private

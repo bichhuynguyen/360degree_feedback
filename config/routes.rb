@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   devise_for :users
   get 'users/:id/show' => 'users#show', as: :user, action: :show, controller: :users
   get 'users/show'
   get 'users/update' 
   get 'users/:id/list' => 'users#list', as: :list, action: :list, controller: :users
   get 'users/:id/account' => "users#account", as: :account, action: :account, controller: :users
-
   get 'users/importuser'
-  devise_for :users, :controllers => {:registrations => 'devise/registrations'}
+  
+  # devise_for :users, :controllers => {:registrations => 'devise/registrations'}
    
   # as :user do
   # get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'    
@@ -18,8 +17,11 @@ Rails.application.routes.draw do
   # get 'users/show'
   # get 'users/update' 
   get 'users/:id/team' => "users#team", as: :team, action: :team, controller: :users
-  resources :users
+  resources :users do
+    collection { post :import}
 
+
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
