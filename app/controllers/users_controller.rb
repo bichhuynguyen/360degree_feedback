@@ -22,16 +22,24 @@ class UsersController < ApplicationController
   def list
     @user = User.find(current_user.id)
     @teams = Team.all
+     @team_id = @user.team_id
+    @role_id = @user.role_id
+    @team = Team.find(@team_id)
+    @role = Role.find(@role_id)
   end
 
   def account
     @user = User.find(current_user.id)
+     @team_id = @user.team_id
+    @role_id = @user.role_id
+    @team = Team.find(@team_id)
+    @role = Role.find(@role_id)
   end
 
   def create
     @user = User.create(user_params)
     respond_to do |format|
-      if @book.save
+      if @user.save
         format.html { redirect_to user_path(current_user), notice: "Your CV was successfully uploaded!" }      
       else
         format.html { render 'new', notice: "Upload failed!" }
@@ -59,8 +67,8 @@ class UsersController < ApplicationController
   end
 
   def update_params
-    params.require(:user).permit(:username, :address, :phone, :password, :avatar)
-    params.require(:user).permit(:cv, versions_attributes: [:comment, :version])
+    params.require(:user).permit(:username, :address, :phone, :avatar, :region, :gender, :skype)
+    # params.require(:user).permit(:cv, versions_attributes: [:comment, :version])
 
   end
 end
